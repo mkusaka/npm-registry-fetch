@@ -1,9 +1,8 @@
-'use strict'
+import nock from 'nock'
+import { clearMemoized } from 'cacache'
 
-const nock = require('nock')
-const clearMemoized = require('cacache').clearMemoized
+export default tnock
 
-module.exports = tnock
 function tnock (t, host) {
   clearMemoized()
   const server = nock(host)

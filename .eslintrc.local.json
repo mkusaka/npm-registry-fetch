@@ -1,0 +1,9 @@
+{
+  "parserOptions": {
+    "ecmaVersion": 2022,
+    "ecmaFeatures": {},
+    "sourceType": "module"
+  },
+  "parser": "@typescript-eslint/parser",
+  "plugins": ["@typescript-eslint"]
+}

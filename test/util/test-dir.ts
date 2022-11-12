@@ -1,13 +1,11 @@
-'use strict'
-
-const mkdirp = require('mkdirp')
-const path = require('path')
-const rimraf = require('rimraf')
-const tap = require('tap')
-
+import mkdirp from 'mkdirp'
+import path from 'path'
+import rimraf from 'rimraf'
+import tap from 'tap'
 const cacheDir = path.resolve(__dirname, '../cache')
 
-module.exports = testDir
+export default testDir
+
 function testDir (filename) {
   const base = path.basename(filename, '.js')
   const dir = path.join(cacheDir, base)
@@ -29,7 +27,7 @@ function testDir (filename) {
   return dir
 }
 
-module.exports.reset = reset
+export { reset }
 function reset (dir) {
   process.chdir(__dirname)
   return new Promise((resolve, reject) => {

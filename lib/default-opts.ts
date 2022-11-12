@@ -1,5 +1,6 @@
 const pkg = require('../package.json')
-module.exports = {
+
+export default {
   maxSockets: 12,
   method: 'GET',
   registry: 'https://registry.npmjs.org/',

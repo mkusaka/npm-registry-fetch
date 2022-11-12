@@ -1,11 +1,12 @@
-'use strict'
+import errors from './errors'
 
-const errors = require('./errors.js')
-const { Response } = require('minipass-fetch')
-const defaultOpts = require('./default-opts.js')
-const log = require('proc-log')
-const cleanUrl = require('./clean-url.js')
+import { Response } from 'minipass-fetch'
 
+import defaultOpts from './default-opts'
+
+import log from 'proc-log'
+
+import cleanUrl from './clean-url'
 /* eslint-disable-next-line max-len */
 const moreInfoUrl = 'https://github.com/npm/cli/wiki/No-auth-for-URI,-but-auth-present-for-scoped-registry'
 const checkResponse =
@@ -38,7 +39,7 @@ More info here: ${moreInfoUrl}`)
       return res
     }
   }
-module.exports = checkResponse
+export default checkResponse
 
 function logRequest (method, res, startTime) {
   const elapsedTime = Date.now() - startTime

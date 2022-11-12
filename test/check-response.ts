@@ -1,8 +1,11 @@
-const { Readable } = require('stream')
-const t = require('tap')
+import { Readable } from 'stream'
 
-const checkResponse = require('../lib/check-response.js')
-const errors = require('../lib/errors.js')
+import t from 'tap'
+
+import checkResponse from '../lib/check-response'
+
+import * as errors from '../lib/errors'
+
 const registry = 'registry'
 const startTime = Date.now()
 

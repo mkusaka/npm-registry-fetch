@@ -1,13 +1,16 @@
-'use strict'
+import { promisify } from 'util'
 
-const { promisify } = require('util')
-const statAsync = promisify(require('fs').stat)
-const path = require('path')
-const t = require('tap')
-const tnock = require('./util/tnock.js')
+import { stat } from 'fs'
 
-const fetch = require('..')
+import path from 'path'
 
+import t from 'tap'
+
+import tnock from './util/tnock'
+
+import * as fetch from '../lib'
+
+const statAsync = promisify(stat)
 const testDir = t.testdir({})
 
 const REGISTRY = 'https://mock.reg'

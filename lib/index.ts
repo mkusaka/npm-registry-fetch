@@ -1,18 +1,25 @@
-'use strict'
+import { HttpErrorAuthOTP } from './errors'
 
-const { HttpErrorAuthOTP } = require('./errors.js')
-const checkResponse = require('./check-response.js')
-const getAuth = require('./auth.js')
-const fetch = require('make-fetch-happen')
-const JSONStream = require('minipass-json-stream')
-const npa = require('npm-package-arg')
-const qs = require('querystring')
-const url = require('url')
-const zlib = require('minizlib')
-const Minipass = require('minipass')
+import checkResponse from './check-response'
 
-const defaultOpts = require('./default-opts.js')
+import getAuth from './auth'
 
+import fetch from 'make-fetch-happen'
+
+// @ts-ignore
+import JSONStream from 'minipass-json-stream'
+
+import npa from 'npm-package-arg'
+
+import qs from 'querystring'
+
+import url from 'url'
+
+import zlib from 'minizlib'
+
+import Minipass from 'minipass'
+
+import defaultOpts from './default-opts'
 // WhatWG URL throws if it's not fully resolved
 const urlIsValid = u => {
   try {
@@ -22,7 +29,8 @@ const urlIsValid = u => {
   }
 }
 
-module.exports = regFetch
+export default regFetch;
+
 function regFetch (uri, /* istanbul ignore next */ opts_ = {}) {
   const opts = {
     ...defaultOpts,
@@ -166,12 +174,12 @@ function regFetch (uri, /* istanbul ignore next */ opts_ = {}) {
   return Promise.resolve(body).then(doFetch)
 }
 
-module.exports.json = fetchJSON
+export {fetchJSON as json}
 function fetchJSON (uri, opts) {
   return regFetch(uri, opts).then(res => res.json())
 }
 
-module.exports.json.stream = fetchJSONStream
+fetchJSON.stream = fetchJSONStream
 function fetchJSONStream (uri, jsonPath,
   /* istanbul ignore next */ opts_ = {}) {
   const opts = { ...defaultOpts, ...opts_ }
@@ -184,7 +192,7 @@ function fetchJSONStream (uri, jsonPath,
   return parser
 }
 
-module.exports.pickRegistry = pickRegistry
+export {pickRegistry}
 function pickRegistry (spec, opts = {}) {
   spec = npa(spec)
   let registry = spec.scope &&
@@ -244,4 +252,4 @@ function getHeaders (uri, auth, opts) {
   return headers
 }
 
-module.exports.cleanUrl = require('./clean-url.js')
+module.exports.cleanUrl = require('./clean-url.ts')

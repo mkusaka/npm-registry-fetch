@@ -1,6 +1,4 @@
-'use strict'
-
-const url = require('url')
+import url from 'url'
 
 function packageName (href) {
   try {
@@ -33,7 +31,8 @@ class HttpErrorBase extends Error {
     this.pkgid = spec ? spec.toString() : packageName(res.url)
   }
 }
-module.exports.HttpErrorBase = HttpErrorBase
+
+export { HttpErrorBase }
 
 class HttpErrorGeneral extends HttpErrorBase {
   constructor (method, res, body, spec) {
@@ -48,7 +47,8 @@ class HttpErrorGeneral extends HttpErrorBase {
     Error.captureStackTrace(this, HttpErrorGeneral)
   }
 }
-module.exports.HttpErrorGeneral = HttpErrorGeneral
+
+export { HttpErrorGeneral }
 
 class HttpErrorAuthOTP extends HttpErrorBase {
   constructor (method, res, body, spec) {
@@ -58,7 +58,8 @@ class HttpErrorAuthOTP extends HttpErrorBase {
     Error.captureStackTrace(this, HttpErrorAuthOTP)
   }
 }
-module.exports.HttpErrorAuthOTP = HttpErrorAuthOTP
+
+export { HttpErrorAuthOTP }
 
 class HttpErrorAuthIPAddress extends HttpErrorBase {
   constructor (method, res, body, spec) {
@@ -68,7 +69,8 @@ class HttpErrorAuthIPAddress extends HttpErrorBase {
     Error.captureStackTrace(this, HttpErrorAuthIPAddress)
   }
 }
-module.exports.HttpErrorAuthIPAddress = HttpErrorAuthIPAddress
+
+export { HttpErrorAuthIPAddress }
 
 class HttpErrorAuthUnknown extends HttpErrorBase {
   constructor (method, res, body, spec) {
@@ -77,4 +79,5 @@ class HttpErrorAuthUnknown extends HttpErrorBase {
     Error.captureStackTrace(this, HttpErrorAuthUnknown)
   }
 }
-module.exports.HttpErrorAuthUnknown = HttpErrorAuthUnknown
+
+export { HttpErrorAuthUnknown }

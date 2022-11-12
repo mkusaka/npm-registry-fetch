@@ -1,4 +1,4 @@
-const { URL } = require('url')
+import { URL } from 'url'
 
 const replace = '***'
 const tokenRegex = /\bnpm_[a-zA-Z0-9]{36}\b/g
@@ -23,4 +23,4 @@ const cleanUrl = (str) => {
     .replace(guidRegex, `npm_${replace}`)
 }
 
-module.exports = cleanUrl
+export default cleanUrl

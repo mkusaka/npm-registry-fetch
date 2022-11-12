@@ -1,11 +1,9 @@
-'use strict'
-
-const Minipass = require('minipass')
-const ssri = require('ssri')
-const t = require('tap')
-const zlib = require('zlib')
-const defaultOpts = require('../lib/default-opts.js')
-const tnock = require('./util/tnock.js')
+import Minipass from 'minipass'
+import ssri from 'ssri'
+import t from 'tap'
+import zlib from 'zlib'
+import defaultOpts from '../lib/default-opts'
+import tnock from './util/tnock'
 
 t.equal(defaultOpts.registry, 'https://registry.npmjs.org/',
   'default registry is the npm public registry')

@@ -1,10 +1,12 @@
 'use strict'
 
-const t = require('tap')
-const tnock = require('./util/tnock.js')
+import t from 'tap'
 
-const fetch = require('..')
-const getAuth = require('../lib/auth.js')
+import tnock from './util/tnock'
+
+import * as fetch from '../lib'
+
+import getAuth from '../lib/auth'
 
 const OPTS = {
   timeout: 0,

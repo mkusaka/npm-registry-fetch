@@ -14,4 +14,10 @@ module.exports = {
     '@npmcli',
     ...localConfigs,
   ],
+  settings: {
+    'import/resolver': {
+      typescript: { project: './' },
+      // たぶんeslintrc.jsからtsconfig.jsonがあるディレクトリへの相対パス
+    },
+  },
 }

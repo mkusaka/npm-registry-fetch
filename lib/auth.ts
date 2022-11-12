@@ -1,7 +1,6 @@
-'use strict'
-const fs = require('fs')
-const npa = require('npm-package-arg')
-const { URL } = require('url')
+import fs from 'fs'
+import npa from 'npm-package-arg'
+import { URL } from 'url'
 
 // Find the longest registry key that is used for some kind of auth
 // in the options.
@@ -142,4 +141,4 @@ class Auth {
   }
 }
 
-module.exports = getAuth
+export default getAuth

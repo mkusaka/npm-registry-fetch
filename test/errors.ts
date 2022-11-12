@@ -1,11 +1,14 @@
 'use strict'
 
-const npa = require('npm-package-arg')
-const t = require('tap')
-const tnock = require('./util/tnock.js')
-const errors = require('../lib/errors.js')
+import npa from 'npm-package-arg'
 
-const fetch = require('..')
+import t from 'tap'
+
+import tnock from './util/tnock'
+
+import * as errors from '../lib/errors'
+
+import * as fetch from '../lib'
 
 const OPTS = {
   timeout: 0,
